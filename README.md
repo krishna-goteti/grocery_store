@@ -1,7 +1,5 @@
 # GroceryStore
 
-![Test and Coverage](https://github.com/username/repository/actions/workflows/test.yml/badge.svg)
-
 GroceryStore is an Elixir-based module designed to handle basic grocery cart management with a discount system. It evaluates a shopping cart by calculating final prices, applying discounts, and providing a breakdown of actual costs versus discounts. This module demonstrates key functionalities common in e-commerce settings.
 
 ## Features
@@ -65,13 +63,52 @@ The `GroceryStore` module calculates the total price of a cart, applying discoun
 
 ```elixir
 # Example cart with product codes
-cart = ["GR1", "GR1", "CF1", "SR1"]
+iex> cart = ["GR1", "GR1", "CF1", "SR1"]
 
 # Evaluate the cart
-{:ok, result} = GroceryStore.evaluate_cart(cart)
-
-# Display results
-IO.inspect(result, label: "Cart Evaluation Result")
+iex> {:ok, result} = GroceryStore.evaluate_cart(cart)
+{:ok,
+ %{
+   actual_price: 22.45,
+   cart_value: 19.34,
+   discounts: 3.11,
+   products: [
+     %{
+       code: "CF1",
+       discount: 0.0,
+       discount_text: "Buy 3 or more and get each for 2/3rd price",
+       final_price: 11.23,
+       fraction: 0.6666666666666666,
+       min_buy_qty: 3,
+       name: "Coffee",
+       price: 11.23,
+       quantity: 1
+     },
+     %{
+       code: "GR1",
+       discount: 3.11,
+       discount_text: "Buy 1 get 1 free",
+       final_price: 3.11,
+       free_qty: 1,
+       min_buy_qty: 1,
+       name: "Green tea",
+       price: 6.22,
+       quantity: 2
+     },
+     %{
+       code: "SR1",
+       discount: 0.0,
+       discount_text: "Buy 3 or more and get each for flat 4.5",
+       final_price: 5.0,
+       flat_price: 4.5,
+       min_buy_qty: 3,
+       name: "Strawberries",
+       price: 5.0,
+       quantity: 1
+     }
+   ],
+   total_quantity: 4
+ }}
 ```
 
 ### Discount Types
@@ -81,7 +118,7 @@ IO.inspect(result, label: "Cart Evaluation Result")
 - **Fraction-Based Discount**: Discounts each item in the set to a fraction of its base price.
 - **Percentage-Based Discount**: Reduces price based on a percentage when a minimum quantity is met.
 
-## Testing
+## Testing and Coverage
 
 To run the tests and ensure all functionalities are working as expected:
 
@@ -90,6 +127,24 @@ mix test
 ```
 
 This will execute all test cases, covering product management, cart evaluation, and discount application scenarios.
+
+Coverage for the GroceryStore
+
+```bash
+$ mix coveralls
+Generated grocery_store app
+.................
+Finished in 0.1 seconds (0.1s async, 0.00s sync)
+17 tests, 0 failures
+
+Randomized with seed 288010
+----------------
+COV    FILE                                        LINES RELEVANT   MISSED
+100.0% lib/grocery_store.ex                          111       32        0
+100.0% lib/products.ex                               132       19        0
+[TOTAL] 100.0%
+----------------
+```
 
 ## Future Improvements
 
