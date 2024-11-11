@@ -146,6 +146,43 @@ COV    FILE                                        LINES RELEVANT   MISSED
 ----------------
 ```
 
+## Credo Checks
+
+```bash
+$ mix credo
+Checking 5 source files ...
+
+Please report incorrect results: https://github.com/rrrene/credo/issues
+
+Analysis took 0.08 seconds (0.05s to load, 0.03s running 55 checks on 5 files)
+25 mods/funs, found no issues.
+
+Showing priority issues: ↑ ↗ →  (use `mix credo explain` to explain issues, `mix credo --help` for options).
+```
+
+## Dialyzer Checks
+
+```bash
+$ mix dialyzer
+Finding suitable PLTs
+Checking PLT...
+[:compiler, :elixir, :grocery_store, :kernel, :logger, :stdlib]
+PLT is up to date!
+No :ignore_warnings opt specified in mix.exs and default does not exist.
+
+Starting Dialyzer
+[
+  check_plt: false,
+  init_plt: '/Users/krishnagoteti/Documents/projects/grocery_store/_build/dev/dialyxir_erlang-24.3.4.2_elixir-1.14.5_deps-dev.plt',
+  files: ['/Users/krishnagoteti/Documents/projects/grocery_store/_build/dev/lib/grocery_store/ebin/Elixir.GroceryStore.Products.beam',
+   '/Users/krishnagoteti/Documents/projects/grocery_store/_build/dev/lib/grocery_store/ebin/Elixir.GroceryStore.beam'],
+  warnings: [:unknown]
+]
+Total errors: 0, Skipped: 0, Unnecessary Skips: 0
+done in 0m0.52s
+done (passed successfully)
+```
+
 ## Future Improvements
 
 - **Enhanced Discount Rules**: Support for more complex discount rules and additional conditions.

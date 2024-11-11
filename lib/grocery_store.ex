@@ -1,4 +1,15 @@
 defmodule GroceryStore do
+  @moduledoc """
+  `GroceryStore` is a module for managing and evaluating a shopping cart of grocery items, applying product-specific discounts to calculate the final cart value.
+
+  ## Main Function
+
+  - `evaluate_cart/1`: Accepts a list of product codes and quantities, processes the items in the cart, and applies relevant discounts. Returns a summary with:
+    - Total quantity of items in the cart
+    - Original price of items before discounts
+    - Total discount applied
+    - Final cart value after discounts
+  """
   alias GroceryStore.Products
 
   @spec evaluate_cart(list()) ::
