@@ -1,5 +1,7 @@
 # GroceryStore
 
+[![Test and Coverage](https://github.com/krishna-goteti/grocery_store/actions/workflows/tests.yml/badge.svg)](https://github.com/krishna-goteti/grocery_store/actions/workflows/tests.yml)
+
 GroceryStore is an Elixir-based module designed to handle basic grocery cart management with a discount system. It evaluates a shopping cart by calculating final prices, applying discounts, and providing a breakdown of actual costs versus discounts. This module demonstrates key functionalities common in e-commerce settings.
 
 ## Features
