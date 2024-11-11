@@ -54,7 +54,7 @@ GroceryStore.Products.get_product("GR1")
 GroceryStore.Products.upsert(%{code: "SR1", price: 5.0, name: "Strawberries"})
 
 # Create a new product with discount
-GroceryStore.Products.upsert(%{code: "MG1", price: 10.0, name: "Strawberries", min_buy_qty: 2, discount_percent: 50})
+GroceryStore.Products.upsert(%{code: "MG1", price: 10.0, name: "Mangoes", min_buy_qty: 2, discount_percent: 50})
 ```
 
 ### Cart Evaluation
