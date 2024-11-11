@@ -1,0 +1,23 @@
+name: Test and Coverage
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Elixir
+        uses: actions/setup-elixir@v1
+        with:
+          elixir-version: "1.14.5"
+          otp-version: "24"
+
+      - name: Install dependencies
+        run: mix deps.get
+
+      - name: Run tests with coverage
+        run: mix coveralls.github
