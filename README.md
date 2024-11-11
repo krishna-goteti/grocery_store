@@ -39,6 +39,11 @@ To use this module, follow these steps:
    mix compile
    ```
 
+4. Run the application:
+   ```bash
+   iex -S mix
+   ```
+
 ## Usage
 
 ### Product Management
